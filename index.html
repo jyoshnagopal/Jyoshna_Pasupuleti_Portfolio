@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jyoshna Pasupuleti — AI/ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #080c10;
+      --surface: #0e1419;
+      --surface2: #141c24;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00d4aa;
+      --accent2: #0ea5e9;
+      --text: #e8edf2;
+      --muted: #6b7a8d;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(8,12,16,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 60px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner { max-width: 680px; }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      display: block;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #080c10;
+      font-weight: 400;
+    }
+
+    .btn-primary:hover {
+      background: #00f0c0;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 60px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      line-height: 1.15;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .highlight-card:hover { border-color: rgba(0,212,170,0.3); }
+
+    .highlight-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .highlight-card h4 {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-left { padding-top: 4px; }
+
+    .timeline-period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .timeline-company {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-location {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .timeline-role {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .timeline-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 4px;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .project-card:hover { border-color: rgba(0,212,170,0.25); transform: translateY(-3px); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .project-impact {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(0,212,170,0.07);
+      border: 1px solid rgba(0,212,170,0.15);
+      border-radius: 4px;
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,212,170,0.05);
+    }
+
+    .contact-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-inner::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-inner h2 { margin-bottom: 16px; }
+
+    .contact-inner p {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-size: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 60px;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag   { animation: fadeUp 0.5s ease both 0.1s; }
+    h1          { animation: fadeUp 0.5s ease both 0.2s; }
+    .hero-desc  { animation: fadeUp 0.5s ease both 0.3s; }
+    .hero-cta   { animation: fadeUp 0.5s ease both 0.4s; }
+    .hero-stats { animation: fadeUp 0.5s ease both 0.5s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      section { padding: 70px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .hero-stats { gap: 28px; }
+      .contact-inner { padding: 40px 24px; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">JP.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Available for opportunities</div>
+      <h1>
+        Jyoshna
+        <span>Pasupuleti</span>
+      </h1>
+      <p class="hero-desc">
+        Senior Data Scientist & AI/ML Engineer specializing in LLMs, RAG architectures,
+        and production-grade machine learning systems across retail, healthcare, and insurance.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch →</a>
+        <a href="#experience" class="btn btn-outline">View experience</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Years of experience</div>
+        </div>
+        <div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">Industries</div>
+        </div>
+        <div>
+          <div class="stat-num">50%</div>
+          <div class="stat-label">Avg. efficiency gain</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="section-label">// 01. about</div>
+    <h2>Building AI that<br/>actually ships.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Hi, I'm Jyoshna — a <strong>Senior Data Scientist and AI/ML Engineer</strong> with
+          7+ years of experience building scalable machine learning and Generative AI solutions.
+          I've worked across retail, healthcare, and insurance, turning complex data into
+          real-world production systems.
+        </p>
+        <p>
+          I specialize in <strong>LLMs, RAG architectures, and end-to-end ML pipelines</strong>,
+          with deep expertise in Python, TensorFlow, PyTorch, and cloud platforms like AWS and Azure.
+          Currently based in New York, I'm passionate about engineering AI that doesn't just work
+          in notebooks — it works in production.
+        </p>
+        <p>
+          I hold a <strong>Master's in Big Data Analytics & IT</strong> from UCM, USA and a
+          Bachelor's in Electronics & Communication Engineering from REVA University, India.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">⚡</div>
+          <div>
+            <h4>Pipeline efficiency</h4>
+            <p>Reduced ML pipeline processing time by 30–40% through optimized feature engineering and workflow orchestration.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🎯</div>
+          <div>
+            <h4>Model accuracy</h4>
+            <p>Improved model accuracy by 15–25% across NLP and forecasting use cases across multiple domains.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🤖</div>
+          <div>
+            <h4>GenAI impact</h4>
+            <p>Built and deployed scalable LLM-based RAG solutions reducing manual effort by 50% in enterprise workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label">// 02. experience</div>
+    <h2>Where I've<br/>worked.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Apr 2025 – Present</div>
+          <div class="timeline-company">Synechron</div>
+          <div class="timeline-location">New York, NY</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">AI/ML Engineer</div>
+          <ul class="timeline-bullets">
+            <li>Built end-to-end ML systems for batch and real-time inference, improving deployment efficiency by ~35%.</li>
+            <li>Fine-tuned BERT and RoBERTa transformer models, improving classification accuracy by 20%.</li>
+            <li>Developed scalable NLP pipelines for large-volume unstructured data processing.</li>
+            <li>Containerized ML workloads with Docker and Kubernetes for fault-tolerant production environments.</li>
+            <li>Implemented monitoring frameworks to detect data drift, reducing production issues by 30%.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span>
+            <span class="tag">NLP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
+            <span class="tag">AWS</span><span class="tag">Spark</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Jan 2023 – Mar 2025</div>
+          <div class="timeline-company">The Home Depot</div>
+          <div class="timeline-location">Atlanta, GA</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Senior Data Scientist</div>
+          <ul class="timeline-bullets">
+            <li>Developed large-scale Spark pipelines processing high-volume retail data, cutting processing time by 35%.</li>
+            <li>Built ML models for demand forecasting, improving accuracy by 18% and optimizing inventory planning.</li>
+            <li>Delivered interactive Tableau dashboards for KPI monitoring and data-driven decisions.</li>
+            <li>Optimized SQL queries and workflows, reducing execution time by 40%.</li>
+            <li>Built and deployed AWS-based data pipelines using S3, Lambda, and Redshift.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Spark</span>
+            <span class="tag">AWS</span><span class="tag">Tableau</span><span class="tag">Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Aug 2020 – Jul 2022</div>
+          <div class="timeline-company">Max Healthcare</div>
+          <div class="timeline-location">New Delhi, India</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Data Scientist</div>
+          <ul class="timeline-bullets">
+            <li>Built scalable data pipelines using Spark and Azure Data Factory, improving efficiency by 30%.</li>
+            <li>Enabled near real-time analytics via Azure Event Hubs and Stream Analytics integration.</li>
+            <li>Developed ML models for clinical and operational analytics to support data-driven decisions.</li>
+            <li>Created Power BI dashboards with role-based access for diverse stakeholders.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Azure</span>
+            <span class="tag">Spark</span><span class="tag">Power BI</span><span class="tag">TensorFlow</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-period">Jun 2018 – Jul 2020</div>
+          <div class="timeline-company">TATA AIG Insurance</div>
+          <div class="timeline-location">Mumbai, India</div>
+        </div>
+        <div class="timeline-right">
+          <div class="timeline-role">Data Analyst</div>
+          <ul class="timeline-bullets">
+            <li>Automated reporting workflows, reducing manual effort by 50% and improving turnaround time.</li>
+            <li>Developed regression and classification models to support risk analysis and business decisions.</li>
+            <li>Built Tableau dashboards to visualize business performance and key metrics.</li>
+            <li>Managed AWS-based batch processing workflows to ensure reliable data processing.</li>
+          </ul>
+          <div class="timeline-tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span>
+            <span class="tag">Tableau</span><span class="tag">AWS</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">// 03. projects</div>
+    <h2>GenAI &amp; ML<br/>work.</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-num">01 /</div>
+        <h3>RAG-Based Intelligent Document Search</h3>
+        <p>Built an end-to-end intelligent document search system using LangChain and vector databases, enabling semantic search across enterprise documents.</p>
+        <div class="project-impact">↓ 60% manual lookup time</div>
+        <div class="project-tech">
+          <span class="tag">LangChain</span><span class="tag">Vector DBs</span><span class="tag">RAG</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02 /</div>
+        <h3>LLM-Powered Enterprise Chatbot</h3>
+        <p>Developed an enterprise chatbot using prompt engineering and embeddings, improving response accuracy and user engagement for internal teams.</p>
+        <div class="project-impact">↑ Response accuracy & engagement</div>
+        <div class="project-tech">
+          <span class="tag">LLMs</span><span class="tag">Prompt Engineering</span><span class="tag">Embeddings</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03 /</div>
+        <h3>Scalable Document Ingestion Pipeline</h3>
+        <p>Designed an end-to-end pipeline for document ingestion, chunking, embedding, and retrieval to power scalable AI applications in production.</p>
+        <div class="project-impact">Production-grade at scale</div>
+        <div class="project-tech">
+          <span class="tag">LangGraph</span><span class="tag">AWS</span><span class="tag">Python</span><span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04 /</div>
+        <h3>Retail Demand Forecasting System</h3>
+        <p>Built ML models incorporating seasonality, promotions, and regional trends for demand forecasting at The Home Depot, optimizing inventory planning.</p>
+        <div class="project-impact">↑ 18% forecast accuracy</div>
+        <div class="project-tech">
+          <span class="tag">Spark</span><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Tableau</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">05 /</div>
+        <h3>Transformer NLP Classification Pipeline</h3>
+        <p>Fine-tuned BERT and RoBERTa models for text classification on large-scale unstructured data with full MLOps monitoring and retraining automation.</p>
+        <div class="project-impact">↑ 20% classification accuracy</div>
+        <div class="project-tech">
+          <span class="tag">BERT</span><span class="tag">RoBERTa</span><span class="tag">PyTorch</span><span class="tag">MLflow</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">06 /</div>
+        <h3>Healthcare Real-Time Analytics Platform</h3>
+        <p>Enabled near real-time clinical and operational analytics at Max Healthcare using Azure Event Hubs and ML-powered dashboards for stakeholder insights.</p>
+        <div class="project-impact">↑ 30% processing efficiency</div>
+        <div class="project-tech">
+          <span class="tag">Azure</span><span class="tag">Spark</span><span class="tag">Power BI</span><span class="tag">Python</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">// 04. skills</div>
+    <h2>Tech stack &amp;<br/>tools.</h2>
+    <div class="skills-container">
+      <div class="skill-group">
+        <div class="skill-group-title">Generative AI & LLMs</div>
+        <div class="skill-pills">
+          <span class="skill-pill">RAG</span>
+          <span class="skill-pill">LangChain</span>
+          <span class="skill-pill">LangGraph</span>
+          <span class="skill-pill">Prompt Engineering</span>
+          <span class="skill-pill">Vector DBs</span>
+          <span class="skill-pill">Embeddings</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">ML & Deep Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill">PyTorch</span>
+          <span class="skill-pill">Transformers</span>
+          <span class="skill-pill">BERT</span>
+          <span class="skill-pill">NLP</span>
+          <span class="skill-pill">Regression</span>
+          <span class="skill-pill">Classification</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & MLOps</div>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">Azure</span>
+          <span class="skill-pill">SageMaker</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Kubernetes</span>
+          <span class="skill-pill">MLflow</span>
+          <span class="skill-pill">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data & Big Data</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Spark</span>
+          <span class="skill-pill">Kafka</span>
+          <span class="skill-pill">Hadoop</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">Redshift</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">R</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Visualization</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">Power BI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">// 05. contact</div>
+    <div class="contact-inner">
+      <h2>Let's build something<br/>together.</h2>
+      <p>I'm open to new opportunities, collaborations, and interesting AI/ML projects. Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:jyoshnagopal6@gmail.com" class="btn btn-primary">jyoshnagopal6@gmail.com</a>
+        <a href="https://linkedin.com/in/Jyoshnagopal6" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="https://github.com/" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Jyoshna Pasupuleti · Built with HTML/CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
