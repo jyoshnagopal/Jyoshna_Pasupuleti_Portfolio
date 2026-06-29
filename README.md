@@ -1,6 +1,20 @@
+# Jyoshna Pasupuleti — Portfolio
+
+Personal portfolio website for Jyoshna Pasupuleti, AI/ML Engineer specializing in NLP, LLMs, RAG architectures, and production-grade machine learning systems.
+
+## Live Demo
+
+Hosted on GitHub Pages: `https://<your-username>.github.io/jyoshna-portfolio`
+
+## Files
+
+jyoshna-portfolio/
+├── index.html   # Full single-page portfolio
+└── README.md    # This file
+
 ## How to Deploy on GitHub Pages
 
-1. Create a new repository on [github.com](https://github.com) named `jyoshna-portfolio`
+1. Create a new repository on github.com named `jyoshna-portfolio`
 2. Upload `index.html` and `README.md` to the repo
 3. Go to **Settings → Pages**
 4. Under **Source**, select `main` branch and `/ (root)` folder
@@ -28,4 +42,4 @@
 
 - Email: jyoshnagopal6@gmail.com
 - Phone: +1 (913) 329-6306
-- LinkedIn: [linkedin.com/in/jyoshnagopal6](https://linkedin.com/in/jyoshnagopal6)
+- LinkedIn: linkedin.com/in/jyoshnagopal6
