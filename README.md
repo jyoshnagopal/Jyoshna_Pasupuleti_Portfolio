@@ -1,6 +1,6 @@
-# Jyoshna Pasupuleti — Portfolio
+# Jyoshna — Portfolio
 
-Personal portfolio website for Jyoshna Pasupuleti, AI/ML Engineer specializing in NLP, LLMs, RAG architectures, and production-grade machine learning systems.
+Personal portfolio website for Jyoshna, AI/ML Engineer specializing in NLP, LLMs, RAG architectures, and production-grade machine learning systems.
 
 ## Live Demo
 
